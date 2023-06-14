@@ -23,8 +23,11 @@
         let wicket = 0;
 
 
-        function clickOne(){
-            alert("One is Clicked");
+        function addOne(){
+            score +=1;
+            console.log(score)
+            rootElement.render(<App />)
+
         }
         const App = () =>{
             return(
@@ -32,7 +35,7 @@
                <h1> SCORE KEEPER APP</h1>
                <h2> SCORE : {score}/{wicket}</h2>
                <div>
-                   <button onClick ={clickOne}>1</button>
+                   <button onClick ={addOne}>1</button>
                    <button>2</button>
                    <button>3</button>
                    <button>4</button>
@@ -45,6 +48,7 @@
            
         }
 
+      
         const rootElement = ReactDOM.createRoot(document.getElementById("root"));
         rootElement.render(<App />)
     </script>
