@@ -34,7 +34,7 @@
 
         function wicketDown() {
 
-            if (wicket < 10){
+            if (wicket < 10) {
                 wicket++;
                 ballWiseRes.push('W');
                 console.log(ballWiseRes);
@@ -55,17 +55,32 @@
                 <button onClick={wicketDown}>Wicket</button>
             </div>
         )
+
+        const Result = () => {
+            return (
+                <div>
+                    {ballWiseRes.map((res, index) => (
+                        <>
+
+                            {index % 6 == 0 ? <br /> : null}
+
+                            <span key={index}>{res == 0  ? <strong>.</strong> : res}</span>&nbsp;&nbsp;
+                            
+                        </>
+                    ))}
+                </div>
+            )
+        }
         const App = () => (
             <>
                 <h1> Score Keeper App </h1>
                 <h2> Score: {score} / {wicket}</h2>
                 <ScoreButtons />
-
+                <Result />
             </>
         )
 
         const rootElement = ReactDOM.createRoot(document.getElementById("root"));
-
         rootElement.render(<App />);
     </script>
 </body>
